@@ -1,0 +1,641 @@
+# COSMOS EMOTION v2.0 - 설치 및 배포 파일
+
+## 📦 requirements.txt
+
+```txt
+# Core dependencies
+numpy>=1.21.0
+scipy>=1.7.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Optional: 형태소 분석 (더 높은 정확도)
+# konlpy>=0.6.0
+
+# Optional: 신경망 확장
+# torch>=2.0.0
+# transformers>=4.30.0
+
+# API Server
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+
+# Data processing
+scikit-learn>=1.0.0
+pandas>=1.3.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Development
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+```
+
+---
+
+## 🐳 Dockerfile
+
+```dockerfile
+FROM python:3.10-slim
+
+# 작업 디렉토리
+WORKDIR /app
+
+# 시스템 패키지 설치
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python 패키지 설치
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 소스 코드 복사
+COPY . .
+
+# 포트 노출
+EXPOSE 8000
+
+# 헬스체크
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:8000/health')"
+
+# 실행
+CMD ["uvicorn", "api_server:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+---
+
+## 🐙 docker-compose.yml
+
+```yaml
+version: '3.8'
+
+services:
+  cosmos-api:
+    build: .
+    container_name: cosmos-emotion-api
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_KONLPY=false
+      - FPS=25
+      - PROPAGATION_ITERATIONS=2
+    volumes:
+      - ./data:/app/data
+      - ./visualizations:/app/visualizations
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: cosmos-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+```
+
+---
+
+## ⚙️ config.yaml
+
+```yaml
+# COSMOS EMOTION 설정 파일
+
+system:
+  name: "COSMOS EMOTION v2.0"
+  version: "2.0.0"
+  
+# 엔진 설정
+engine:
+  # 형태소 분석
+  morpheme:
+    use_konlpy: false  # KoNLPy 사용 여부
+    fallback_to_rules: true
+  
+  # 양방향 전파
+  propagation:
+    iterations: 2
+    up_transmission_ratio: 0.7
+    down_decay_base: 0.9
+  
+  # 공명 시스템
+  resonance:
+    # 채널별 가중치
+    channel_weights:
+      spectral: 1.0
+      phase: 1.2
+      harmonic: 1.5
+      semantic: 1.1
+      cross_layer: 1.8
+    
+    # 감지 임계값
+    thresholds:
+      min_repetitions: 3
+      sync_threshold: 2.0
+      similarity_threshold: 0.7
+      min_layers: 3
+  
+  # Timeline
+  timeline:
+    default_fps: 25
+    min_fps: 10
+    max_fps: 60
+
+# API 설정
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  
+  # CORS
+  cors:
+    allow_origins: ["*"]
+    allow_methods: ["*"]
+    allow_headers: ["*"]
+  
+  # Rate limiting
+  rate_limit:
+    enabled: true
+    requests_per_minute: 60
+  
+  # 배치 처리
+  batch:
+    max_size: 100
+    timeout_seconds: 300
+
+# 로깅
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "cosmos.log"
+
+# 시각화
+visualization:
+  dpi: 150
+  figsize: [16, 12]
+  style: "seaborn"
+  save_format: "png"
+
+# 성능
+performance:
+  cache_enabled: true
+  cache_ttl_seconds: 300
+  max_memory_mb: 1024
+  
+# 데이터셋
+dataset:
+  data_dir: "./data"
+  cache_dir: "./cache"
+  
+  # 분할 비율
+  split:
+    train: 0.7
+    val: 0.15
+    test: 0.15
+  
+  # 전처리
+  preprocessing:
+    max_length: 512
+    remove_special_chars: false
+    lowercase: false
+```
+
+---
+
+## 🔧 setup.py
+
+```python
+from setuptools import setup, find_packages
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
+
+setup(
+    name="cosmos-emotion",
+    version="2.0.0",
+    author="COSMOS EMOTION Team",
+    author_email="cosmos.emotion@example.com",
+    description="차세대 감정 분석 시스템 - 음악 이론 + 양방향 전파 + 5채널 공명",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/IdeasCosmos/COSMOS-EMOTION-v2",
+    packages=find_packages(),
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Text Processing :: Linguistic",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+    ],
+    python_requires=">=3.8",
+    install_requires=requirements,
+    extras_require={
+        "konlpy": ["konlpy>=0.6.0"],
+        "neural": ["torch>=2.0.0", "transformers>=4.30.0"],
+        "dev": ["pytest>=7.0.0", "black>=22.0.0", "flake8>=5.0.0"],
+    },
+    entry_points={
+        "console_scripts": [
+            "cosmos=main:main",
+            "cosmos-api=api_server:main",
+        ],
+    },
+)
+```
+
+---
+
+## 📋 install.sh
+
+```bash
+#!/bin/bash
+# COSMOS EMOTION v2.0 설치 스크립트
+
+echo "========================================"
+echo "COSMOS EMOTION v2.0 설치"
+echo "========================================"
+echo ""
+
+# Python 버전 확인
+python_version=$(python3 --version 2>&1 | awk '{print $2}')
+echo "Python 버전: $python_version"
+
+if [[ $(echo $python_version | cut -d. -f1,2) < "3.8" ]]; then
+    echo "⚠️  Python 3.8 이상이 필요합니다."
+    exit 1
+fi
+
+# 가상환경 생성
+echo ""
+echo "[1/5] 가상환경 생성..."
+python3 -m venv venv
+
+# 가상환경 활성화
+echo "[2/5] 가상환경 활성화..."
+source venv/bin/activate
+
+# 패키지 업그레이드
+echo "[3/5] pip 업그레이드..."
+pip install --upgrade pip
+
+# 패키지 설치
+echo "[4/5] 패키지 설치..."
+pip install -r requirements.txt
+
+# 선택적 패키지 설치
+echo ""
+read -p "KoNLPy를 설치하시겠습니까? (더 높은 정확도) [y/N]: " install_konlpy
+if [[ $install_konlpy =~ ^[Yy]$ ]]; then
+    echo "KoNLPy 설치 중..."
+    pip install konlpy
+    
+    # macOS의 경우
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "macOS 감지 - Java 설치 확인..."
+        if ! command -v java &> /dev/null; then
+            echo "⚠️  Java가 필요합니다. Homebrew로 설치:"
+            echo "    brew install openjdk@11"
+        fi
+    fi
+fi
+
+# 테스트
+echo ""
+echo "[5/5] 설치 확인..."
+python3 -c "
+try:
+    import numpy
+    import matplotlib
+    import scipy
+    print('✓ 기본 패키지 로드 성공')
+except Exception as e:
+    print(f'⚠️  패키지 로드 실패: {e}')
+    exit(1)
+"
+
+# 완료
+echo ""
+echo "========================================"
+echo "✓ 설치 완료!"
+echo "========================================"
+echo ""
+echo "실행 방법:"
+echo "  1. 가상환경 활성화:"
+echo "     source venv/bin/activate"
+echo ""
+echo "  2. 메인 프로그램 실행:"
+echo "     python main.py"
+echo ""
+echo "  3. API 서버 실행:"
+echo "     python api_server.py"
+echo "     또는: uvicorn api_server:app --reload"
+echo ""
+echo "  4. 도움말:"
+echo "     python main.py --help"
+echo ""
+```
+
+---
+
+## 🪟 install.bat (Windows)
+
+```batch
+@echo off
+REM COSMOS EMOTION v2.0 설치 스크립트 (Windows)
+
+echo ========================================
+echo COSMOS EMOTION v2.0 설치
+echo ========================================
+echo.
+
+REM Python 버전 확인
+python --version
+if %errorlevel% neq 0 (
+    echo ⚠️  Python이 설치되어 있지 않습니다.
+    echo https://www.python.org/downloads/ 에서 다운로드
+    pause
+    exit /b 1
+)
+
+REM 가상환경 생성
+echo.
+echo [1/5] 가상환경 생성...
+python -m venv venv
+
+REM 가상환경 활성화
+echo [2/5] 가상환경 활성화...
+call venv\Scripts\activate.bat
+
+REM 패키지 업그레이드
+echo [3/5] pip 업그레이드...
+python -m pip install --upgrade pip
+
+REM 패키지 설치
+echo [4/5] 패키지 설치...
+pip install -r requirements.txt
+
+REM 테스트
+echo.
+echo [5/5] 설치 확인...
+python -c "import numpy; import matplotlib; import scipy; print('✓ 설치 성공')"
+
+REM 완료
+echo.
+echo ========================================
+echo ✓ 설치 완료!
+echo ========================================
+echo.
+echo 실행 방법:
+echo   1. 가상환경 활성화:
+echo      venv\Scripts\activate.bat
+echo.
+echo   2. 메인 프로그램 실행:
+echo      python main.py
+echo.
+echo   3. API 서버 실행:
+echo      python api_server.py
+echo.
+pause
+```
+
+---
+
+## 🧪 pytest.ini
+
+```ini
+[pytest]
+testpaths = tests
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+
+addopts = 
+    -v
+    --cov=.
+    --cov-report=html
+    --cov-report=term-missing
+    --ignore=venv
+    --ignore=.venv
+
+markers =
+    slow: marks tests as slow (deselect with '-m "not slow"')
+    integration: marks tests as integration tests
+    unit: marks tests as unit tests
+```
+
+---
+
+## 🎨 .gitignore
+
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+.venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Data
+data/
+*.csv
+*.json
+*.wav
+
+# Visualizations
+*.png
+*.jpg
+*.pdf
+visualizations/
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (sensitive)
+config.local.yaml
+.env
+```
+
+---
+
+## 📚 Makefile
+
+```makefile
+.PHONY: help install test run api docker clean
+
+help:
+	@echo "COSMOS EMOTION v2.0 - 명령어"
+	@echo ""
+	@echo "  make install    - 패키지 설치"
+	@echo "  make test       - 테스트 실행"
+	@echo "  make run        - 메인 프로그램 실행"
+	@echo "  make api        - API 서버 실행"
+	@echo "  make docker     - Docker 빌드 및 실행"
+	@echo "  make clean      - 캐시 및 임시 파일 삭제"
+	@echo ""
+
+install:
+	pip install -r requirements.txt
+
+test:
+	pytest tests/ -v --cov
+
+run:
+	python main.py
+
+api:
+	uvicorn api_server:app --reload --port 8000
+
+docker:
+	docker-compose up --build
+
+clean:
+	find . -type d -name __pycache__ -exec rm -rf {} +
+	find . -type f -name "*.pyc" -delete
+	find . -type f -name "*.pyo" -delete
+	find . -type d -name "*.egg-info" -exec rm -rf {} +
+	rm -rf build/ dist/ .pytest_cache/ .coverage htmlcov/
+```
+
+---
+
+## 🚀 deploy.sh (프로덕션 배포)
+
+```bash
+#!/bin/bash
+# 프로덕션 배포 스크립트
+
+echo "========================================"
+echo "COSMOS EMOTION v2.0 프로덕션 배포"
+echo "========================================"
+echo ""
+
+# 1. 코드 업데이트
+echo "[1/6] Git Pull..."
+git pull origin main
+
+# 2. 의존성 업데이트
+echo "[2/6] 패키지 업데이트..."
+pip install -r requirements.txt --upgrade
+
+# 3. 테스트
+echo "[3/6] 테스트 실행..."
+pytest tests/ -v
+if [ $? -ne 0 ]; then
+    echo "⚠️  테스트 실패! 배포 중단."
+    exit 1
+fi
+
+# 4. Docker 이미지 빌드
+echo "[4/6] Docker 이미지 빌드..."
+docker-compose build
+
+# 5. 기존 컨테이너 중지
+echo "[5/6] 기존 컨테이너 중지..."
+docker-compose down
+
+# 6. 새 컨테이너 시작
+echo "[6/6] 새 컨테이너 시작..."
+docker-compose up -d
+
+# 헬스체크
+echo ""
+echo "헬스체크 대기..."
+sleep 10
+
+curl -f http://localhost:8000/health
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "✓ 배포 성공!"
+    echo "API: http://localhost:8000/docs"
+else
+    echo ""
+    echo "⚠️  헬스체크 실패!"
+    docker-compose logs --tail=50
+    exit 1
+fi
+```
+
+---
+
+이제 모든 설치 및 배포 파일이 준비되었습니다! 🎉
+
+각 파일의 역할:
+- **requirements.txt**: Python 패키지 의존성
+- **Dockerfile**: Docker 컨테이너 설정
+- **docker-compose.yml**: 멀티 컨테이너 오케스트레이션
+- **config.yaml**: 시스템 설정
+- **setup.py**: Python 패키지 설치
+- **install.sh/bat**: 원클릭 설치 스크립트
+- **pytest.ini**: 테스트 설정
+- **.gitignore**: Git 제외 파일
+- **Makefile**: 자주 사용하는 명령어
+- **deploy.sh**: 프로덕션 배포 자동화

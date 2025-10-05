@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# 데이터
+*.csv
+*.json
+*.wav
+*.m4a
+
+# 시각화 출력
+*.png
+*.jpg
+
+# Zone files
+*.Zone.Identifier
+
+# IDE
+.vscode/
+.idea/
+*.swp

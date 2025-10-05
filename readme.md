@@ -1,3 +1,7 @@
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+  ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+  ![BERT](https://img.shields.io/badge/BERT-+96%25-green)
+
 # COSMOS EMOTION v2.0 - 완전 통합 시스템
 
 > **혁명적 감정 분석: 음악 이론 + 양방향 전파 + 5채널 공명**  

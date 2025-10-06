@@ -27,8 +27,15 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 입력 → 감정 양자화 → 다중 벡터 공간 → 상태 전이 → 진화된 감정 상태
 ```
 
-**[이미지: 시스템 개요 다이어그램]**  
-*전체 파이프라인을 보여주는 플로우차트 (입력부터 출력까지)*
+> 💡 **이미지 추가 방법**: 시스템 다이어그램 이미지를 추가하려면:
+> 1. 이미지 파일을 `images/architecture/` 폴더에 저장
+> 2. 아래 주석을 다음과 같이 변경:
+> ```markdown
+> ![시스템 개요 다이어그램](images/architecture/system-overview.png)
+> ```
+> 자세한 내용은 [마크다운 가이드](MARKDOWN_GUIDE.md)를 참조하세요.
+
+<!-- 이미지 추가 예정: images/architecture/system-overview.png -->
 
 ---
 
@@ -52,8 +59,7 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 
 이 아키텍처는 "조심스러운 낙관" 또는 "씁쓸한 향수"와 같은 복잡한 상태를 모델링할 수 있게 합니다 — 단일 벡터 시스템에서는 불가능한 조합입니다.
 
-**[이미지: 다중 벡터 공간 시각화]**  
-*3D 공간에서 여러 감정 벡터가 동시에 표현된 모습*
+<!-- 이미지 추가 예정: images/diagrams/multi-vector-space.png -->
 
 ### 상태 전이 엔진
 
@@ -87,8 +93,7 @@ L2 ATOMIC    ────┤  기본 감정 구성요소
 L1 QUANTUM   ────┘  미시 수준 정서 입자
 ```
 
-**[이미지: 7계층 아키텍처 다이어그램]**  
-*각 계층의 역할과 상호작용을 보여주는 상세 다이어그램*
+<!-- 이미지 추가 예정: images/architecture/7-layer-model.png -->
 
 각 계층은 다음을 포함합니다:
 - **탈출 속도 임계값** — 상위 계층으로의 전파 제어
@@ -109,8 +114,7 @@ L1 QUANTUM   ────┘  미시 수준 정서 입자
 
 **적응 모드:** 맥락에 따라 안정성과 탐험을 동적으로 균형 조정
 
-**[이미지: 이중성 아키텍처 비교]**  
-*안정성/혁신/적응 모드의 동작 차이를 보여주는 비교 차트*
+<!-- 이미지 추가 예정: images/architecture/duality-architecture.png -->
 
 ---
 
@@ -136,8 +140,7 @@ L1 QUANTUM   ────┘  미시 수준 정서 입자
 
 **가치 제안:** 지속적인 감정 상태 인식을 통한 선제적 정신 건강 지원.
 
-**[이미지: 감정 궤적 시각화 예시]**  
-*시간에 따른 감정 상태 변화를 보여주는 그래프*
+<!-- 이미지 추가 예정: images/screenshots/emotion-trajectory.png -->
 
 ### 동적 콘텐츠 추천
 
@@ -210,8 +213,7 @@ print(f"전이 요약: {evolved_state.summary}")
 
 **프로덕션 준비:** 밀리초 이하 지연시간으로 대화형 애플리케이션에서 실시간 감정 반응 가능.
 
-**[이미지: 성능 벤치마크 그래프]**  
-*처리량과 지연시간을 보여주는 막대 그래프*
+<!-- 이미지 추가 예정: images/performance/benchmark-chart.png -->
 
 ---
 
@@ -264,8 +266,7 @@ print(f"전이 요약: {evolved_state.summary}")
 └─────────────────┘
 ```
 
-**[이미지: 상태 전이 플로우차트]**  
-*실제 디자인된 플로우차트 이미지*
+<!-- 이미지 추가 예정: images/diagrams/state-transition-flow.png -->
 
 ### 이중성 아키텍처
 
@@ -342,6 +343,18 @@ Apache License 2.0 — 자세한 내용은 [LICENSE](LICENSE)를 참조하세요
 
 ---
 
+## 📚 문서 및 리소스
+
+프로젝트 사용에 도움이 되는 추가 문서들:
+
+- **[파일 목록 및 설명](FILE_DESCRIPTIONS.md)** - 모든 프로젝트 파일의 상세 설명 및 역할
+- **[마크다운 가이드](MARKDOWN_GUIDE.md)** - README에 이미지/링크 추가하는 방법
+- **[이미지 폴더 구조](images/README.md)** - 이미지 파일 관리 가이드
+- **[영문 문서](EN_README.MD)** - English version of documentation
+- **[설치 및 배포](설치%20및%20배포%20파일.txt)** - 상세 설치/배포 가이드
+
+---
+
 ## 인용
 
 연구에서 COSMOS_EMOTION을 사용하는 경우 다음과 같이 인용해 주세요:
@@ -358,3 +371,5 @@ Apache License 2.0 — 자세한 내용은 [LICENSE](LICENSE)를 참조하세요
 ---
 
 **연락처:** [sjpupro@gmail.com]  
+**LinkedIn:** [Jaehyuck Jang](https://www.linkedin.com/in/jaehyuck-jang-a35298356)  
+**X:** [@IDEA_COSMOS](https://x.com/IDEA_COSMOS)  

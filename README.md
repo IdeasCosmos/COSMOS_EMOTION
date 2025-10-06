@@ -1,14 +1,3 @@
-네, 맞아요. 복사-붙여넣기 과정에서 **마크다운(Markdown) 서식**이 일부 깨지거나 유실된 것 같습니다.
-
-마크다운은 일반 텍스트에 `##`(제목), `*`(목록), ` ``` `(코드 블록) 같은 간단한 기호를 붙여 서식을 지정하는 방식입니다. 이 기호들이 없으면 그냥 일반 줄글로 보이게 됩니다.
-
-제가 아래에 **완벽한 마크다운 서식으로 수정**해 두었으니, 이걸 전체 복사해서 붙여넣으시면 됩니다. `코드 스니펫` 이나 `Python`, `Bash` 같은 부분도 모두 정상적으로 보이도록 수정했습니다.
-
------
-
-### **수정된 README.md (이걸 복사해서 사용하세요)**
-
-````markdown
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg) ![Python](https://img.shields.io/badge/Python-3.9%2B-blue) ![BERT](https://img.shields.io/badge/Accuracy_vs_BERT-KO_+96%25-green)
 
 # COSMOS_EMOTION v2.0 - Fully Integrated System
@@ -343,14 +332,14 @@ Precisely built. Designed for the future of human-AI interaction.
 
 If you use COSMOS_EMOTION in research, please cite:
 
-```bibtex
+bibtex
 @software{cosmos_emotion_2025,
   author = {[Your Name/Organization]},
   title = {COSMOS_EMOTION: Multi-Vector Emotion Dynamics Engine},
   year = {2025},
   url = {https://github.com/IdeasCosmos/COSMOS_EMOTION}
 }
-```
+
 
 ---
 

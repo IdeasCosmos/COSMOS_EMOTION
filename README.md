@@ -1,5 +1,3 @@
-Markdown
-
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg) ![Python](https://img.shields.io/badge/Python-3.9%2B-blue) ![BERT](https://img.shields.io/badge/Accuracy_vs_BERT-KO_+96%25-green)
 
 # COSMOS_EMOTION v2.0 - Fully Integrated System

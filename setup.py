@@ -16,6 +16,16 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/IdeasCosmos/COSMOS_EMOTION",
     packages=find_packages(),
+    py_modules=[
+        "api_server",
+        "bidirectional_propagation",
+        "dataset_integration",
+        "integrated_cosmos_system",
+        "morpheme_intensity_system",
+        "quick_start_example",
+        "resonance_system",
+        "visualization_comparison",
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

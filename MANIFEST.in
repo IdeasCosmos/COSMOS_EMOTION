@@ -1,0 +1,15 @@
+include README.md
+include LICENSE
+include VERSION
+include requirements.txt
+include config.yaml
+include Dockerfile
+include docker-compose.yml
+include Makefile
+include pytest.ini
+include install.sh
+include install.bat
+include deploy.sh
+include 설치 및 배포 파일.txt
+include EN_README.MD
+include KO_README.MD

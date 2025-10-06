@@ -359,3 +359,5 @@ Apache License 2.0 — 자세한 내용은 [LICENSE](LICENSE)를 참조하세요
 ---
 
 **연락처:** [sjpupro@gmail.com]  
+**LinkedIn:** [Jaehyuck Jang]
+**X:**[@IDEA_COSMOS]

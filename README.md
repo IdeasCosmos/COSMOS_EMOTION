@@ -18,10 +18,11 @@ COSMOS_EMOTION goes beyond binary sentiment analysis. It treats emotions as dyna
 
 **Core Innovation:** Living artificial emotions through hierarchical gradient propagation and cascade-controlled state evolution.
 
+```
 Input → Emotion Quantization → Multi-Vector Space → State Transition → Evolved Emotion State
+```
 
-
-<img width="256" height="384" alt="main" src="https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7" />
+<img width="256" height="384" alt="main" src="[https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7](https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7)" />
 
 ---
 
@@ -45,7 +46,7 @@ Traditional models use single-dimensional sentiment scores. COSMOS_EMOTION emplo
 
 This architecture enables modeling of complex states like "cautious optimism" or "bitter nostalgia" — combinations impossible in single-vector systems.
 
-<img width="384" height="256" alt="main2" src="https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac" />
+<img width="384" height="256" alt="main2" src="[https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac](https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac)" />
 
 ### State Transition Engine
 
@@ -53,20 +54,23 @@ Emotion evolution follows deterministic dynamics with stochastic perturbations:
 
 ```python
 V_next = f(V_current, S_external, Δt, θ_policy)
+```
+
 Where:
+- `V_current`: Current multi-vector emotional state
+- `S_external`: External stimulus vector
+- `Δt`: Time delta since last update
+- `θ_policy`: Transition policy parameters (stability vs. innovation mode)
 
-V_current: Current multi-vector emotional state
+**Cascade Control:** Built-in velocity thresholds prevent runaway emotional amplification, ensuring system stability while allowing authentic state transitions.
 
-S_external: External stimulus vector
+---
 
-Δt: Time delta since last update
+## Architecture
 
-θ_policy: Transition policy parameters (stability vs. innovation mode)
+### Hierarchical 7-Layer Model
 
-Cascade Control: Built-in velocity thresholds prevent runaway emotional amplification, ensuring system stability while allowing authentic state transitions.
-
-Architecture
-Hierarchical 7-Layer Model
+```
 L7 COSMOS    ────┐  Macro-level emotional patterns
 L6 ECOSYSTEM ────┤  Social and contextual influences  
 L5 ORGANIC   ────┤  Sustained emotional states
@@ -74,78 +78,73 @@ L4 COMPOUND  ────┤  Complex emotional combinations
 L3 MOLECULAR ────┤  Basic emotional molecules
 L2 ATOMIC    ────┤  Fundamental feeling components
 L1 QUANTUM   ────┘  Micro-level affective particles
-<img width="256" height="384" alt="main3" src="https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727" />
+```
+<img width="256" height="384" alt="main3" src="[https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727](https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727)" />
 
 Each layer has:
+-   **Escape velocity threshold** — Controls propagation to higher layers
+-   **DNA codon mapping** — 64 micro-operations for emotion transformation
+-   **Dual-mode filtering** — Polynomial (top-down control) and inequality (bottom-up signals)
 
-Escape velocity threshold — Controls propagation to higher layers
+### Duality Architecture
 
-DNA codon mapping — 64 micro-operations for emotion transformation
+**Stability Mode:** Prioritizes emotional coherence and prevents cascade failures
+-   Conservative thresholds
+-   Strong dampening
+-   Safety-first recovery
 
-Dual-mode filtering — Polynomial (top-down control) and inequality (bottom-up signals)
+**Innovation Mode:** Explores novel emotional trajectories  
+-   Permissive thresholds
+-   Butterfly effect amplification
+-   Learning-oriented exploration
 
-Duality Architecture
-Stability Mode: Prioritizes emotional coherence and prevents cascade failures
+**Adaptive Mode:** Dynamically balances stability and exploration based on context
 
-Conservative thresholds
+<img width="256" height="256" alt="main4" src="[https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0](https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0)" />
 
-Strong dampening
+---
 
-Safety-first recovery
+## Applications
 
-Innovation Mode: Explores novel emotional trajectories
+### High-Fidelity AI Agents
 
-Permissive thresholds
-
-Butterfly effect amplification
-
-Learning-oriented exploration
-
-Adaptive Mode: Dynamically balances stability and exploration based on context
-
-<img width="256" height="256" alt="main4" src="https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0" />
-
-Applications
-High-Fidelity AI Agents
 Deploy emotionally responsive NPCs and chatbots that exhibit believable personality evolution:
 
-Game Characters — NPCs whose moods shift based on player interactions and story events
+-   **Game Characters** — NPCs whose moods shift based on player interactions and story events
+-   **Conversational AI** — Chatbots that remember and reference past emotional contexts
+-   **Virtual Companions** — AI entities with persistent, evolving emotional states
 
-Conversational AI — Chatbots that remember and reference past emotional contexts
+**Value Proposition:** Deep immersion through authentic emotional responses, not scripted reactions.
 
-Virtual Companions — AI entities with persistent, evolving emotional states
+### Digital Mental Health Monitoring
 
-Value Proposition: Deep immersion through authentic emotional responses, not scripted reactions.
-
-Digital Mental Health Monitoring
 Track emotional state trajectories from text data to identify psychological patterns:
 
-Early Warning Systems — Detect concerning emotional drift before crisis points
+-   **Early Warning Systems** — Detect concerning emotional drift before crisis points
+-   **Longitudinal Analysis** — Map individual emotional landscapes over weeks or months  
+-   **Intervention Targeting** — Identify optimal timing for therapeutic engagement
 
-Longitudinal Analysis — Map individual emotional landscapes over weeks or months
+**Value Proposition:** Proactive mental health support through continuous emotional state awareness.
 
-Intervention Targeting — Identify optimal timing for therapeutic engagement
+<img width="256" height="256" alt="Emotion Trajectory Visualization" src="[https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44](https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44)" />
 
-Value Proposition: Proactive mental health support through continuous emotional state awareness.
+### Dynamic Content Recommendation
 
-<img width="256" height="256" alt="Emotion Trajectory Visualization" src="https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44" />
-
-Dynamic Content Recommendation
 Guide users through intentional emotional journeys via intelligent content curation:
 
-Mood-Responsive Playlists — Music that evolves with listener's emotional state
+-   **Mood-Responsive Playlists** — Music that evolves with listener's emotional state
+-   **Therapeutic Media Paths** — Content sequences designed to shift emotional states therapeutically
+-   **Engagement Optimization** — Maximize retention through emotional resonance
 
-Therapeutic Media Paths — Content sequences designed to shift emotional states therapeutically
+**Value Proposition:** Content experiences that feel personally meaningful, not algorithmically cold.
 
-Engagement Optimization — Maximize retention through emotional resonance
+---
 
-Value Proposition: Content experiences that feel personally meaningful, not algorithmically cold.
+## Installation
 
-Installation
-Bash
-
+```bash
 # Clone repository
-git clone [https://github.com/IdeasCosmos/COSMOS_EMOTION.git](https://github.com/IdeasCosmos/COSMOS_EMOTION.git)
+git clone https://github.com/IdeasCosmos/COSMOS_EMOTION.git
 cd COSMOS_EMOTION
 
 # Install dependencies
@@ -156,11 +155,15 @@ python -m pytest tests/
 
 # Launch demo
 python examples/emotion_demo.py
-Requirements: Python 3.9+, NumPy, PyTorch (optional for GPU acceleration)
+```
 
-Quick Start
-Python
+**Requirements:** Python 3.9+, NumPy, PyTorch (optional for GPU acceleration)
 
+---
+
+## Quick Start
+
+```python
 from cosmos_emotion import EmotionEngine, GlobalPolicy
 
 # Initialize engine in adaptive mode
@@ -180,19 +183,31 @@ evolved_state = engine.evolve(
 
 print(f"Evolved vectors: {evolved_state.vectors}")
 print(f"Transition summary: {evolved_state.summary}")
-Performance
+```
+
+---
+
+## Performance
+
 Benchmarked on consumer hardware (Ryzen 7, 32GB RAM):
 
-Operation	Throughput	Latency (p95)
-Emotion Quantization	2,400 inputs/sec	0.8ms
-State Transition	18,000 updates/sec	0.12ms
-Multi-Vector Propagation	12,000 ops/sec	0.18ms
-Production-Ready: Sub-millisecond latency enables real-time emotional response in interactive applications.
+| Operation              | Throughput         | Latency (p95) |
+| ---------------------- | ------------------ | ------------- |
+| Emotion Quantization   | 2,400 inputs/sec   | 0.8ms         |
+| State Transition       | 18,000 updates/sec | 0.12ms        |
+| Multi-Vector Propagation | 12,000 ops/sec     | 0.18ms        |
 
-<img width="1024" height="1024" alt="Performance Benchmark Graph" src="https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6" />
+**Production-Ready:** Sub-millisecond latency enables real-time emotional response in interactive applications.
 
-System Diagrams
-Emotion State Transition Flow
+<img width="1024" height="1024" alt="Performance Benchmark Graph" src="[https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6](https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6)" />
+
+---
+
+## System Diagrams
+
+### Emotion State Transition Flow
+
+```
 ┌─────────────┐
 │ Text Input  │
 └──────┬──────┘
@@ -235,9 +250,12 @@ Emotion State Transition Flow
 ┌─────────────────┐
 │ Evolved State   │
 └─────────────────┘
-<img width="256" height="384" alt="State Transition Flowchart" src="https://github.com/user-attachments/assets/cba8a7b1-0a01-42cf-9d45-5d57d04eb14a" />
+```
+<img width="256" height="384" alt="State Transition Flowchart" src="[https://github.com/user-attachments/assets/cba8a7b1-0a01-42cf-9d45-5d57d04eb14a](https://github.com/user-attachments/assets/cba8a7b1-0a01-42cf-9d45-5d57d04eb14a)" />
 
-Duality Architecture
+### Duality Architecture
+
+```
         COSMOS_EMOTION Core
                │
         ┌──────┴──────┐
@@ -254,75 +272,77 @@ Duality Architecture
                │
          Unified 7-Layer
            Hierarchy
-Research Foundation
+```
+
+---
+
+## Research Foundation
+
 This system builds on research in:
 
-Affective Computing — Picard et al., MIT Media Lab
+-   **Affective Computing** — Picard et al., MIT Media Lab
+-   **Dynamical Systems Theory** — Emotional attractor states and bifurcations
+-   **Multi-Vector Embeddings** — Distributed representations of psychological states
+-   **Cascade Dynamics** — Threshold-based propagation models from neuroscience
 
-Dynamical Systems Theory — Emotional attractor states and bifurcations
+**Key innovation:** Treating emotions as **phase space trajectories** rather than static classifications.
 
-Multi-Vector Embeddings — Distributed representations of psychological states
+---
 
-Cascade Dynamics — Threshold-based propagation models from neuroscience
+## Roadmap
 
-Key innovation: Treating emotions as phase space trajectories rather than static classifications.
+**Q2 2025**
+- [ ] GPU-accelerated state transitions (10x performance target)
+- [ ] Pre-trained emotion embeddings for 50+ languages
+- [ ] Visual emotion trajectory analyzer
 
-Roadmap
-Q2 2025
+**Q3 2025**
+- [ ] Real-time audio emotion quantization
+- [ ] Multi-modal emotion fusion (text + voice + physiological signals)
+- [ ] Emotion transfer learning between agents
 
-[ ] GPU-accelerated state transitions (10x performance target)
+**Q4 2025**
+- [ ] Cloud-native deployment (AWS/GCP)
+- [ ] Production-grade API with SLA guarantees
+- [ ] Certification for healthcare applications
 
-[ ] Pre-trained emotion embeddings for 50+ languages
+---
 
-[ ] Visual emotion trajectory analyzer
+## Contributing
 
-Q3 2025
+Contributions welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
 
-[ ] Real-time audio emotion quantization
+**Priority Areas:**
+1.  Additional emotion lexicons and cultural mappings
+2.  Validation studies comparing model predictions to human annotations
+3.  Performance optimizations for mobile deployment
+4.  Novel applications in creative AI tools
 
-[ ] Multi-modal emotion fusion (text + voice + physiological signals)
+---
 
-[ ] Emotion transfer learning between agents
+## License
 
-Q4 2025
-
-[ ] Cloud-native deployment (AWS/GCP)
-
-[ ] Production-grade API with SLA guarantees
-
-[ ] Certification for healthcare applications
-
-Contributing
-Contributions welcome. Please read CONTRIBUTING.md for development setup and guidelines.
-
-Priority Areas:
-
-Additional emotion lexicons and cultural mappings
-
-Validation studies comparing model predictions to human annotations
-
-Performance optimizations for mobile deployment
-
-Novel applications in creative AI tools
-
-License
-Apache License 2.0 — For more details, refer to LICENSE.
+Apache License 2.0 — For more details, refer to [LICENSE](LICENSE).
 
 Precisely built. Designed for the future of human-AI interaction.
 
-Citation
+---
+
+## Citation
+
 If you use COSMOS_EMOTION in research, please cite:
 
-코드 스니펫
-
+```bibtex
 @software{cosmos_emotion_2025,
   author = {[Your Name/Organization]},
   title = {COSMOS_EMOTION: Multi-Vector Emotion Dynamics Engine},
   year = {2025},
-  url = {[https://github.com/IdeasCosmos/COSMOS_EMOTION](https://github.com/IdeasCosmos/COSMOS_EMOTION)}
+  url = {https://github.com/IdeasCosmos/COSMOS_EMOTION}
 }
-Contact: [sjpupro@gmail.com]
+```
 
-LinkedIn: Jaehyuck Jang
+---
 
-X: @IDEA_COSMOS
+**Contact:** [sjpupro@gmail.com]  
+**LinkedIn:** [Jaehyuck Jang](https://www.linkedin.com/in/jaehyuck-jang-a35298356)  
+**X:** [@IDEA_COSMOS](https://x.com/IDEA_COSMOS)

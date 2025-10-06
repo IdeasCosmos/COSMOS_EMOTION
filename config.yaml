@@ -1,0 +1,99 @@
+# COSMOS EMOTION 설정 파일
+
+system:
+  name: "COSMOS EMOTION v2.0"
+  version: "2.0.0"
+  
+# 엔진 설정
+engine:
+  # 형태소 분석
+  morpheme:
+    use_konlpy: false  # KoNLPy 사용 여부
+    fallback_to_rules: true
+  
+  # 양방향 전파
+  propagation:
+    iterations: 2
+    up_transmission_ratio: 0.7
+    down_decay_base: 0.9
+  
+  # 공명 시스템
+  resonance:
+    # 채널별 가중치
+    channel_weights:
+      spectral: 1.0
+      phase: 1.2
+      harmonic: 1.5
+      semantic: 1.1
+      cross_layer: 1.8
+    
+    # 감지 임계값
+    thresholds:
+      min_repetitions: 3
+      sync_threshold: 2.0
+      similarity_threshold: 0.7
+      min_layers: 3
+  
+  # Timeline
+  timeline:
+    default_fps: 25
+    min_fps: 10
+    max_fps: 60
+
+# API 설정
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  
+  # CORS
+  cors:
+    allow_origins: ["*"]
+    allow_methods: ["*"]
+    allow_headers: ["*"]
+  
+  # Rate limiting
+  rate_limit:
+    enabled: true
+    requests_per_minute: 60
+  
+  # 배치 처리
+  batch:
+    max_size: 100
+    timeout_seconds: 300
+
+# 로깅
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "cosmos.log"
+
+# 시각화
+visualization:
+  dpi: 150
+  figsize: [16, 12]
+  style: "seaborn"
+  save_format: "png"
+
+# 성능
+performance:
+  cache_enabled: true
+  cache_ttl_seconds: 300
+  max_memory_mb: 1024
+  
+# 데이터셋
+dataset:
+  data_dir: "./data"
+  cache_dir: "./cache"
+  
+  # 분할 비율
+  split:
+    train: 0.7
+    val: 0.15
+    test: 0.15
+  
+  # 전처리
+  preprocessing:
+    max_length: 512
+    remove_special_chars: false
+    lowercase: false

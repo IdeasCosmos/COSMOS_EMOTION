@@ -3,6 +3,11 @@ matplotlib>=3.7.0
 scipy>=1.10.0
 pandas>=2.0.0
 
+# API Server dependencies (optional)
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+
 # 선택: 형태소 분석 (더 높은 정확도)
 # konlpy>=0.6.0
 

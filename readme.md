@@ -27,7 +27,7 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 입력 → 감정 양자화 → 다중 벡터 공간 → 상태 전이 → 진화된 감정 상태
 ```
 
-<img width="1024" height="1536" alt="main" src="https://github.com/user-attachments/assets/c0b970cc-1cac-4682-8f2f-2f7976fd0a11" />
+<img width="512" height="768" alt="main" src="https://github.com/user-attachments/assets/233e7e9c-6c85-4e63-b0f7-03760857f1a7" />
 
 ---
 
@@ -52,7 +52,7 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 
 이 아키텍처는 "조심스러운 낙관" 또는 "씁쓸한 향수"와 같은 복잡한 상태를 모델링할 수 있게 합니다 — 단일 벡터 시스템에서는 불가능한 조합입니다.
 
-<img width="1536" height="1024" alt="main2" src="https://github.com/user-attachments/assets/cb6abd27-2cb0-4f0a-b837-10ad2d1909a6" />
+<img width="768" height="512" alt="main2" src="https://github.com/user-attachments/assets/76bb566f-3ab2-4900-9d94-7a765aa70c3c" />
 
 
 ### 상태 전이 엔진
@@ -86,8 +86,8 @@ L3 MOLECULAR ────┤  기본 감정 분자
 L2 ATOMIC    ────┤  기본 감정 구성요소
 L1 QUANTUM   ────┘  미시 수준 정서 입자
 ```
-  
-<img width="1024" height="1536" alt="main3" src="https://github.com/user-attachments/assets/f5f83fab-3349-45dc-aa65-1bb5ca4af72d" />
+
+<img width="512" height="768" alt="main3" src="https://github.com/user-attachments/assets/0ca6339d-b6ce-4a90-bda8-47e19992d04a" />
 
 
 각 계층은 다음을 포함합니다:

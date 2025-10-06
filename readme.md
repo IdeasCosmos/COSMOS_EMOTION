@@ -27,7 +27,8 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 입력 → 감정 양자화 → 다중 벡터 공간 → 상태 전이 → 진화된 감정 상태
 ```
 
-<img width="512" height="768" alt="main" src="https://github.com/user-attachments/assets/233e7e9c-6c85-4e63-b0f7-03760857f1a7" />
+<img width="256" height="384" alt="main" src="https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7" />
+
 
 ---
 
@@ -44,7 +45,7 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 
 ### 다중 벡터 감정 공간
 
-기존 모델들은 단일 차원의 감정 점수를 사용합니다. COSMOS_EMOTION은 병렬 벡터 표현을 사용합니다:
+기존 모델들은 단일 차원의 감정 점수를 사용합니다. > COSMOS_EMOTION은 병렬 벡터 표현을 사용합니다:
 
 - **주요 감정 벡터** (L1-L3): 핵심 감정 상태 (기쁨, 슬픔, 분노, 두려움 등)
 - **강도 벡터** (L4-L5): 크기 및 각성 수준
@@ -52,7 +53,8 @@ COSMOS_EMOTION은 이진 감정 분석을 넘어섭니다. 감정을 고차원 �
 
 이 아키텍처는 "조심스러운 낙관" 또는 "씁쓸한 향수"와 같은 복잡한 상태를 모델링할 수 있게 합니다 — 단일 벡터 시스템에서는 불가능한 조합입니다.
 
-<img width="768" height="512" alt="main2" src="https://github.com/user-attachments/assets/76bb566f-3ab2-4900-9d94-7a765aa70c3c" />
+
+<img width="384" height="256" alt="main2" src="https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac" />
 
 
 ### 상태 전이 엔진
@@ -86,9 +88,7 @@ L3 MOLECULAR ────┤  기본 감정 분자
 L2 ATOMIC    ────┤  기본 감정 구성요소
 L1 QUANTUM   ────┘  미시 수준 정서 입자
 ```
-
-<img width="512" height="768" alt="main3" src="https://github.com/user-attachments/assets/0ca6339d-b6ce-4a90-bda8-47e19992d04a" />
-
+<img width="256" height="384" alt="main3" src="https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727" />
 
 각 계층은 다음을 포함합니다:
 - **탈출 속도 임계값** — 상위 계층으로의 전파 제어
@@ -110,7 +110,8 @@ L1 QUANTUM   ────┘  미시 수준 정서 입자
 **적응 모드:** 맥락에 따라 안정성과 탐험을 동적으로 균형 조정
 
 **[이미지: 이중성 아키텍처 비교]**  
-*안정성/혁신/적응 모드의 동작 차이를 보여주는 비교 차트*
+
+<img width="256" height="256" alt="main4" src="https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0" />
 
 ---
 
@@ -137,7 +138,9 @@ L1 QUANTUM   ────┘  미시 수준 정서 입자
 **가치 제안:** 지속적인 감정 상태 인식을 통한 선제적 정신 건강 지원.
 
 **[이미지: 감정 궤적 시각화 예시]**  
-*시간에 따른 감정 상태 변화를 보여주는 그래프*
+
+<img width="256" height="256" alt="ChatGPT Image 2025년 10월 7일 오전 03_53_44" src="https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44" />
+
 
 ### 동적 콘텐츠 추천
 
@@ -211,7 +214,7 @@ print(f"전이 요약: {evolved_state.summary}")
 **프로덕션 준비:** 밀리초 이하 지연시간으로 대화형 애플리케이션에서 실시간 감정 반응 가능.
 
 **[이미지: 성능 벤치마크 그래프]**  
-*처리량과 지연시간을 보여주는 막대 그래프*
+<img width="1024" height="1024" alt="ChatGPT Image 2025년 10월 7일 오전 03_40_39" src="https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6" />
 
 ---
 
@@ -263,14 +266,12 @@ print(f"전이 요약: {evolved_state.summary}")
 │ 진화된 상태      │
 └─────────────────┘
 ```
-
-**[이미지: 상태 전이 플로우차트]**  
-*실제 디자인된 플로우차트 이미지*
+<img width="256" height="384" alt="ChatGPT Image 2025년 10월 7일 오전 03_45_23" src="https://github.com/user-attachments/assets/cba8a7b1-0a01-42cf-9d45-5d57d04eb14a" />
 
 ### 이중성 아키텍처
 
 ```
-        COSMOS_EMOTION 코어
+   COSMOS_EMOTION 코어
               │
        ┌──────┴──────┐
        │             │

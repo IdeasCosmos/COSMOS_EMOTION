@@ -21,8 +21,8 @@ COSMOS_EMOTION goes beyond binary sentiment analysis. It treats emotions as dyna
 ```
 Input → Emotion Quantization → Multi-Vector Space → State Transition → Evolved Emotion State
 ```
+<img width="256" height="384" alt="main" src="https://github.com/user-attachments/assets/a80d7eb8-461b-40d3-8818-96a3ba1fa654" />
 
-<img width="256" height="384" alt="main" src="[https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7](https://github.com/user-attachments/assets/ea8a4750-560d-46dc-92d4-db08097cbfe7)" />
 
 ---
 
@@ -46,7 +46,8 @@ Traditional models use single-dimensional sentiment scores. COSMOS_EMOTION emplo
 
 This architecture enables modeling of complex states like "cautious optimism" or "bitter nostalgia" — combinations impossible in single-vector systems.
 
-<img width="384" height="256" alt="main2" src="[https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac](https://github.com/user-attachments/assets/0e6a08af-e746-46f3-b13b-8cc6d5ea75ac)" />
+<img width="384" height="256" alt="main2" src="https://github.com/user-attachments/assets/66767371-3942-47bf-8e69-f8511be53b30" />
+
 
 ### State Transition Engine
 
@@ -79,7 +80,8 @@ L3 MOLECULAR ────┤  Basic emotional molecules
 L2 ATOMIC    ────┤  Fundamental feeling components
 L1 QUANTUM   ────┘  Micro-level affective particles
 ```
-<img width="256" height="384" alt="main3" src="[https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727](https://github.com/user-attachments/assets/29ac8a90-4e1b-4732-a619-129940c27727)" />
+<img width="256" height="384" alt="main3" src="https://github.com/user-attachments/assets/b0e692e1-1f95-4c82-8845-9a0ce62edbf0" />
+
 
 Each layer has:
 -   **Escape velocity threshold** — Controls propagation to higher layers
@@ -100,7 +102,8 @@ Each layer has:
 
 **Adaptive Mode:** Dynamically balances stability and exploration based on context
 
-<img width="256" height="256" alt="main4" src="[https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0](https://github.com/user-attachments/assets/f16510d2-3cf8-4e7b-8307-840b858e48d0)" />
+<img width="256" height="256" alt="main4" src="https://github.com/user-attachments/assets/7e4ac6c9-8e67-4a7c-81c3-7b8f1852b251" />
+
 
 ---
 
@@ -126,7 +129,8 @@ Track emotional state trajectories from text data to identify psychological patt
 
 **Value Proposition:** Proactive mental health support through continuous emotional state awareness.
 
-<img width="256" height="256" alt="Emotion Trajectory Visualization" src="[https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44](https://github.com/user-attachments/assets/e794d9d9-321f-4d80-b64a-d3c3b128fa44)" />
+<img width="208" height="312" alt="main5" src="https://github.com/user-attachments/assets/c3ed98c2-950c-4347-84a5-fbd787035516" />
+
 
 ### Dynamic Content Recommendation
 
@@ -199,7 +203,8 @@ Benchmarked on consumer hardware (Ryzen 7, 32GB RAM):
 
 **Production-Ready:** Sub-millisecond latency enables real-time emotional response in interactive applications.
 
-<img width="1024" height="1024" alt="Performance Benchmark Graph" src="[https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6](https://github.com/user-attachments/assets/4d7f41eb-f3c4-49f0-a759-c4c667efcda6)" />
+<img width="256" height="256" alt="main6" src="https://github.com/user-attachments/assets/17a17290-a6a3-4348-90bb-922adb79a521" />
+
 
 ---
 

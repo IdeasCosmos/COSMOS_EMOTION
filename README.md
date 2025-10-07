@@ -332,12 +332,11 @@ Precisely built. Designed for the future of human-AI interaction.
 
 If you use COSMOS_EMOTION in research, please cite:
 
-bibtex
-@software{cosmos_emotion_2025,
-  author = {[Your Name/Organization]},
-  title = {COSMOS_EMOTION: Multi-Vector Emotion Dynamics Engine},
-  year = {2025},
-  url = {https://github.com/IdeasCosmos/COSMOS_EMOTION}
+## bibtex
+software{cosmos_emotion_2025, author = {[Your Name/Organization]},
+title = {COSMOS_EMOTION: Multi-Vector Emotion Dynamics Engine},
+year = {2025},
+url = {https://github.com/IdeasCosmos/COSMOS_EMOTION}
 }
 
 
